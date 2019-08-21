@@ -1,0 +1,7 @@
+<div>
+  <mat-form-field>
+    <mat-select placeholder="Calendrier a sélectionner" (selectionChange)="selectionChange($event.value)" [value]="selected">
+      <mat-option *ngFor="let calendar of calendriers" [value]="calendar">{{calendar.summary}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

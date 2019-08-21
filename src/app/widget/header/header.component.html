@@ -1,0 +1,24 @@
+<mat-drawer-container class="" autosize>
+  <mat-drawer class="" mode="over"  *ngIf="isConnected">
+    <div class="banner" color="primary">
+      <ng-content select="[appSidenavHeader]"></ng-content>
+    </div>
+    <div class="sidenav-open-content">
+      <ng-content select="[appSidenav]"></ng-content>
+    </div>
+    <button mat-raised-button color="primary" class="disconnect" (click)="disconnect()">déconnexion</button>
+  </mat-drawer>
+  <div class="sidenav-content">
+    <mat-toolbar color="primary">  
+      <mat-toolbar-row class="ligne-titre" [ngClass]="{fullsize: !isConnected}">
+        <button mat-icon-button (click)="toggle()"  class="menu-button" [ngClass]="{hidden: !isConnected}"><mat-icon aria-hidden="false" aria-label="Menu latéral">menu</mat-icon></button>
+        <h1 class="app-titre">Scrum Maestro</h1>
+        <span class="waiting" [ngClass]="{hidden: !isWaiting}"><mat-spinner color="accent"></mat-spinner></span>
+        <button mat-raised-button (click)="connect()" class="connect-button" [ngClass]="{hidden: !isUnConnected}" color="accent"> connexion </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <div class="application-content">
+      <ng-content select="[appContent]"></ng-content>
+    </div>
+  </div>
+</mat-drawer-container>

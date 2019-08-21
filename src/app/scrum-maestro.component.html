@@ -1,0 +1,20 @@
+<div class="connected">
+  <scrum-maestro-header [state]="state" (connection)="connection()" (disconnection)="disconnect()">
+    <div appSidenavHeader>
+        <scrum-maestro-profil-card [user]='user'></scrum-maestro-profil-card>
+    </div>
+    <div appSidenav>
+      <mat-list>
+        <h3 mat-subheader>Calendriers</h3>
+        <mat-list-item>
+          <scrum-maestro-choix-calendrier [calendriers]="calendriers" (calendrierChange)="calendrierChange($event)" ></scrum-maestro-choix-calendrier>
+        </mat-list-item>
+      </mat-list>
+    </div>
+    <div appContent>
+      <div *ngIf="events.length">
+        <scrum-maestro-event [event]="event" *ngFor="let event of events"></scrum-maestro-event>
+      </div>
+    </div>
+  </scrum-maestro-header>
+</div>

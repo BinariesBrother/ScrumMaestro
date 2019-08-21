@@ -1,0 +1,69 @@
+.sidenav-content {
+  height: 100vh;
+}
+
+.application-content {
+    margin: 8px;
+}
+
+.sidenav-open-content {
+    width: 80vw;
+}
+
+.disconnect {
+  position: absolute;
+  bottom: 1em;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+}
+
+$transition-duration: 0.7s;
+$transition-delay-menu: 1.1s;
+$transition-delay-waiting: 0.7s;
+$transition-delay-titre: 0.7s;
+
+.menu-button { 
+  transition: transform $transition-duration linear, opacity $transition-duration linear;
+  transition-delay: $transition-delay-menu;
+  &.hidden {
+    transform: translateX(-5em);
+    opacity: 0;
+  }
+}
+
+.waiting, .connect-button{
+  position: absolute;
+  top: 60vh;
+  left: 50vw;
+  transform: translateX(-50%);  
+  &.hidden {
+    opacity: 0;
+    transform: translateY(-100VH);
+  }
+}
+
+.waiting {
+  transition: opacity $transition-duration linear $transition-delay-waiting;
+}
+
+.connect-button {
+  transition: transform $transition-duration linear, opacity $transition-duration linear;
+  width: 75%;
+}
+
+.ligne-titre {
+  transition: height $transition-duration linear;
+  transition-delay: $transition-delay-titre;
+  .app-titre{
+    transition: transform $transition-duration;
+    transition-delay: $transition-delay-titre;
+    transform-origin: top left;
+  }
+  &.fullsize {
+    height: 100vh;
+    .app-titre{
+      transform: scale(2);
+    }
+  }
+}
